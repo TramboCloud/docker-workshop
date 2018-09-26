@@ -1,0 +1,22 @@
+version: '3'
+services:
+  app-server:
+    container_name: app
+    hostname: app
+    build:
+      context: app
+      dockerfile: Dockerfile
+    image: workshop-docker
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - PORT=3000
+    ports:
+      - 3000:3000
+    depends_on:
+      - redis
+
+  redis:
+    container_name: redis
+    hostname: redis
+    image: redis:3.2

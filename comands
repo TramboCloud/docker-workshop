@@ -1,0 +1,11 @@
+delete all the containers that are stoped
+
+- docker rm $(docker ps -aq)
+
+show runnning containers
+
+- docker ps
+
+show stopped containers
+
+- docker ps -a
